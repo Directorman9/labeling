@@ -1,6 +1,9 @@
-import pymongo
+import pymongo, os
+from dotenv import load_dotenv
 
-CONNECTION_STRING = "mongodb+srv://hemed:Hmd.Man9@fezaalumni.fhgp8.mongodb.net/Labelling?retryWrites=true&w=majority"
+load_dotenv()
+
+CONNECTION_STRING = os.environ.get("DB_CONNECTION_STRING")
 
 client = pymongo.MongoClient(CONNECTION_STRING)
 db = client.Labelling

@@ -3,13 +3,14 @@ from flask_session import Session
 from auth import auth_blueprint
 from main import main_blueprint
 import os, requests 
-
+from dotenv import load_dotenv
 
 application = Flask(__name__)
 
-application.config['SECRET_KEY'] = "labelling_secret"
-application.config["SESSION_TYPE"] =  "filesystem"
-application.config["SESSION_FILE_DIR"] = "sessnz"
+load_dotenv()
+application.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY")
+application.config["SESSION_TYPE"] =  os.environ.get("SESSION_TYPE")
+application.config["SESSION_FILE_DIR"] = os.environ.get("SESSION_DIR")
 application.config["SESSION_PERMANENT"] = False #destroy session when browser closes
 
 application.register_blueprint(auth_blueprint)
