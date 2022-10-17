@@ -1,0 +1,106 @@
+
+<link rel="stylesheet" type="text/css" href="/static/css/questions.css">    
+
+<div class="members-container" ng-controller="questionsCtrl" ng-init="init()">   
+       <div class="titlebar">
+           <h4>Questions</h4>     
+       
+           <input type="text" class="form-control" id="cm-members-search" placeholder="Search" aria-label="Username" ng-model="searchText" aria-describedby="basic-addon1">
+       </div> 
+
+       <hr>
+       <div>
+            <div class="question vertical-flex space-between margin-2 padding-1" ng-repeat="q in questions | filter : searchText">
+                   <div class="vertical-flex width-100">
+                      <span class="fgreen bold">{{q.title}}</span>
+                      <span class="lighter">{{q.description}}</span> 
+                   </div>
+                   
+                   <div class="space-between width-100">
+                        
+                            <div class="bggray3 margin-1">
+                                    <small class="fblack width-100 bold margin-1 padding-1">Entry</small> 
+                                     <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 1" name="{{q.number}}" ng-model="q.answer" value="1" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 1">Definition of a concept</label>
+                                   </div>
+                                   <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 2" name="{{q.number}}" ng-model="q.answer" value="2" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 2">Definitional difference btw concepts</label>
+                                   </div>
+                                   <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 3" name="{{q.number}}" ng-model="q.answer" value="3" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 3">Where to learn a concept</label>
+                                   </div>
+                                   <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 4" name="{{q.number}}" ng-model="q.answer" value="4" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 4">Availability of a dataset</label>
+                                   </div>
+                                   <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 5" name="{{q.number}}" ng-model="q.answer" value="5" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 5">Problems installing a software</label>
+                                   </div>
+                            </div>
+
+                            <div class="bggray3 margin-1">
+                                   <small class="fblack margin-1 bold padding-1">Standard</small>
+                                   <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 6" name="{{q.number}}" ng-model="q.answer" value="6" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 6">About attributes of a concept</label>
+                                   </div>
+                                   <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 7" name="{{q.number}}" ng-model="q.answer" value="7" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 7">Non definitional differences btw concepts</label>
+                                   </div>
+                                   <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 8" name="{{q.number}}" ng-model="q.answer" value="8" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 8">Possible solutions/algorithms/packages</label>
+                                   </div>
+                            </div>
+
+
+                            <div class="bggray3 margin-1">
+                                    <small class="fblack margin-1 bold padding-1">Advanced</small>
+                                    <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 9" name="{{q.number}}" ng-model="q.answer" value="9" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 9">Limitations of a concept</label>
+                                   </div>
+                                   <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 10" name="{{q.number}}" ng-model="q.answer" value="10" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 10">Programming errors and implememtations difficulties</label>
+                                   </div>
+                                   <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 11" name="{{q.number}}" ng-model="q.answer" value="11" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 11">Alternative solutions to a problem</label>
+                                   </div>
+                            </div>  
+
+                            <div class="bggray3 margin-1">
+                                <small class="fblack margin-1 bold padding-1">Other</small>
+                                <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 12" name="{{q.number}}" ng-model="q.answer" value="12" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 12">Subjective</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 13" name="{{q.number}}" ng-model="q.answer" value="13" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 13">Complex</label>
+                                </div>
+                            </div>       
+                    </div>
+
+
+                       <!--
+                      <a class="fblack bglemon small padding-2 margin-2" id="subjective">Subjective</a> 
+
+                      -->
+                   </div>
+                
+            </div>
+        <div class="horizontal-flex right">
+            <span class="fred bold big">{{msg}}</span>
+            <button class="bggreen fwhite padding-1 margin-1" ng-click="save()">Save changes</button>
+        </div>
+      </div>
+        
+</div>
+
