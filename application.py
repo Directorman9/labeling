@@ -20,8 +20,8 @@ Session(application)
 
 if __name__ == "__main__":
    #application.run(host='0.0.0.0', debug=True, port=6543)
-   application.run(host='0.0.0.0', debug=True)
-   #application.run(host='0.0.0.0')
+   #application.run(host='0.0.0.0', debug=True)
+   application.run(host='0.0.0.0')
 
 
 
