@@ -6,7 +6,6 @@ main.controller('questionsCtrl',function($scope, $http, $window){
       $scope.msg = ""
   };
 
-
   $scope.get_questions = function(){
         $http.get('/main/get_questions')
             .then(

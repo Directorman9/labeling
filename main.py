@@ -35,8 +35,16 @@ def get_questions():
        
     user = db.Users.find_one({'email': email})
 
-    #questions = db.Questions.find({"email":email}).limit(100)
-    questions = db.Questions.find().limit(100)
+    questions = db.Questions.find({"$or":[{"email1":email},{"email2":email}]}).limit(100)
+    questions = list(questions)
+    if email == questions[0].get('email1'): 
+       for q in questions:
+           q['answer'] = q.get('answer1')
+    elif email == questions[0].get('email2'): 
+       for q in questions:
+           q['answer'] = q.get('answer2')
+    
+   
         
     questions  = json_util.dumps(questions)
     response =  make_response(questions, SUCCESS_CODE) 
@@ -52,9 +60,15 @@ def save_answers():
        return redirect(url_for('auth_blueprint.index'))
       
     questions = request.get_json()
-    for q in questions:   
-        print ("number is", q.get('number'))
-        db.Questions.update_one({'number': q.get('number')},{"$set": { "answer": q.get('answer')}})   
+
+    if email == questions[0].get('email1'):
+       for q in questions:   
+           db.Questions.update_one({'number': q.get('number')},{"$set": { 'answer1' : q.get('answer')}})
+    elif email == questions[0].get('email2'):
+       for q in questions:   
+           db.Questions.update_one({'number': q.get('number')},{"$set": { 'answer2' : q.get('answer')}})  
+    
+      
           
     response =  make_response("answer saved successfully", SUCCESS_CODE) 
      
