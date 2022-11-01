@@ -41,7 +41,16 @@
     .question > div:nth-child(2){
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: flex-start;
+    }
+
+    .choice{
+        width: 24%;
+    }
+
+
+    .choice > div:nth-child(1){
+      text-align: center;
     }
 
 
@@ -62,6 +71,14 @@
     .question > div:nth-child(2){
       width: 100%;
       flex-direction: column;
+    }
+
+    .choice{
+      width: 100%;
+    }
+
+    .choice > div:nth-child(1){
+      text-align: left;
     }
 }
 

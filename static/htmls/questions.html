@@ -16,8 +16,57 @@
                       <span class="lighter">{{q.description}}</span> 
                    </div>
                    
-                   <div class="space-between width-100">
-                        
+                   <div class="width-100">
+
+                            <div class="choice bggray3 margin-1">
+                                 <div class="custom-control custom-radio center-text margin-1">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 2" name="{{q.number}}" ng-model="q.answer" value="2" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 2">Nonsuggestive</label>
+                                </div>
+                                <small class="fblack margin-1 padding-1 justify-text">Did not try to solve the problem or suggest a solution</small>
+                            </div>
+
+                            <div class="choice bggray3 margin-1">
+                                <div class="custom-control custom-radio center-text margin-1">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 3" name="{{q.number}}" ng-model="q.answer" value="3" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 3">Suggestive</label>
+                                </div>
+                                <small class="fblack margin-1 padding-1 justify-text">Tried to solve the problem or suggest a solution</small>
+                            </div>
+
+                          
+
+                           
+
+                            <!--
+
+                            <div class="choice bggray3 margin-1">
+                                <div class="custom-control custom-radio center-text margin-1">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 1" name="{{q.number}}" ng-model="q.answer" value="1" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 1">Conceptual</label>
+                                </div>
+                                <small class="fblack margin-1 padding-1">Wants to understand a concept(s) or get a dataset</small>
+                            </div>
+
+                            <div class="choice bggray3 margin-1">
+                                 <div class="custom-control custom-radio center-text margin-1">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 5" name="{{q.number}}" ng-model="q.answer" value="6" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 5">Multiple</label>
+                                </div>
+                                <small class="fblack margin-1 padding-1">More than one type of question is asked.</small>
+                            </div>
+
+                             <div class="choice bggray3 margin-1">
+                                 <div class="custom-control custom-radio center-text margin-1">
+                                       <input type="radio" class="custom-control-input" id="{{q.number}} + 4" name="{{q.number}}" ng-model="q.answer" value="4" required>
+                                       <label class="custom-control-label lighter" for="{{q.number}} + 4">Subjective</label>
+                                </div>
+                                <small class="fblack margin-1 padding-1 justify-text">Wants an opinion.</small>
+                            </div>
+                            -->
+                            
+                    
+                    <!--
                             <div class="bggray3 margin-1">
                                     <small class="fblack width-100 bold margin-1 padding-1">Entry</small> 
                                      <div class="custom-control custom-radio">
@@ -87,12 +136,7 @@
                                 </div>
                             </div>       
                     </div>
-
-
-                       <!--
-                      <a class="fblack bglemon small padding-2 margin-2" id="subjective">Subjective</a> 
-
-                      -->
+                -->
                    </div>
                 
             </div>

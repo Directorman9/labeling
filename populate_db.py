@@ -2,6 +2,25 @@ import codecs, csv, random, string, re, pandas as pd
 from db import db
 
 
+
+def update_questions():    
+    with codecs.open("data.tsv", encoding='utf-8', mode='r') as inptFile:
+          reader = csv.reader(inptFile, delimiter='\t')
+          number = 0
+                  
+          for line in reader:
+              root = line[0].split('#')
+              title = root[4]
+              description = root[5]
+              number = number+ 1
+              q = {'number': number,
+                   'title': title,
+                   'description': description,
+                  }
+              db.Questions.update_one({'number': number },{"$set": {"title": title, "description": description}})
+          
+    return ('db populated successfully') 
+    
 '''
 def populate_db():    
     with codecs.open("data.tsv", encoding='utf-8', mode='r') as inptFile:
@@ -16,19 +35,18 @@ def populate_db():
               q = {'number': number,
                    'title': title,
                    'description': description,
-                   'answer': None
                   }
               db.Questions.insert_one(q)
           
     return ('db populated successfully') 
-     
+   
 
 
 def map_students_to_qstns():
-    df = pd.read_csv("tuesday.csv", sep=',', delimiter=None, header='infer')
+    df = pd.read_csv("instructors.csv", sep=',', delimiter=None, header='infer')
     emails = df['Username'].tolist()
-    frm = 1
-    to = 1000
+    frm = 18000#16000 #1
+    to = 19000#17000  #1000
     for email in emails: 
         db.Questions.update_many({"$and": [{'number': { "$gte": frm }},{'number': { "$lte": to}}]},{"$set": { "email1": email}})
         frm += 1000
@@ -59,7 +77,8 @@ def remove_attribute():
     return ('attributes added successfully')   
 '''   
 #print (populate_db())
+print (update_questions())
 #print (map_students_to_qstns())
 #print (insert_users())
 #print (add_attributes())
-print (remove_attribute())
+#print (remove_attribute())

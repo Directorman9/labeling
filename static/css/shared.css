@@ -375,6 +375,11 @@ a:hover, a:focus{
   text-align: center;
 }
 
+.justify-text{
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 
 
 
